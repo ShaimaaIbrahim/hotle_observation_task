@@ -30,7 +30,8 @@ class DbHelper {
     }
 
     this._db = await openDatabase(dbPathRooms);
-    print('shaimaa===yes =============${_db.path}');
+
+
     if (_db == null) {
       throw "bd is not initiated, initiate using [init(db)] function";
     }

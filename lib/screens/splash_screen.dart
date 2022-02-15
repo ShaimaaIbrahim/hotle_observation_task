@@ -40,14 +40,14 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: secondaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
             children: [
-              Center(
-                  child:  Image.asset('assets/icons/book.png', width: 150.w, height: 150.h,)
-
-              )
+              Positioned(
+                  top: 0.h,
+                  bottom: 0.h,
+                  right: 0.w,
+                  left: 0.w,
+                  child: Image.asset('assets/icons/book.png', width: 150.w, height: 150.h,))
             ],
           )
         ),
