@@ -20,7 +20,7 @@ class DbHelper {
     bool dbExistsRooms = await io.File(dbPathRooms).exists();
 
 
-    if (!dbExistsRooms) {
+  //  if (!dbExistsRooms) {
       // Copy from asset
       ByteData data =
           await rootBundle.load(path.join("assets", "hotel_observation.db"));
@@ -29,7 +29,7 @@ class DbHelper {
 
       // Write and flush the bytes written
       await io.File(dbPathRooms).writeAsBytes(bytes, flush: true);
-    }
+   // }
 
     return dbPathRooms;
    // this.db= await openDatabase(dbPathRooms);

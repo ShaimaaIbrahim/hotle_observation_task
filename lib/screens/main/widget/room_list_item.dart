@@ -40,7 +40,7 @@ class RoomListItem extends StatelessWidget {
             ],
           ),
           heightSpace(20.h),
-          roomModel.status==0 ?  Center(
+          roomModel.status==1 ?  Center(
             child: StyledButton(
               fillColor: secondaryColor,
               text: 'BOOK', function: (){

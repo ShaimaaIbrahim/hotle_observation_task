@@ -8,11 +8,18 @@ import '../../BaseViewModel.dart';
 class AuthViewModel extends BaseViewModel{
 
 
+  var db = locator<DbHelper>();
 
-  Future<void> signUp(String name, String email , String password)async {
-    //final db = await database;
+  Future<void> signUp(int id, String name, String email , String password, int hasbook)async {
+   db.insertNewUser(UserModel(name: name, email: email , password: password, id: 1, has_book: hasbook) ,);
+  }
 
-   locator<DbHelper>().insertNewUser(UserModel(name: name, email: email , password: password, id: 1, has_book: 0) ,);
+  int getAllUsrers(){
+    int length =0;
+    db.getAllUsers().then((value) {
+      length = value.length;
+    });
+    return length;
   }
 
 }

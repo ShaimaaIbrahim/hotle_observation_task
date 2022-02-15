@@ -20,9 +20,7 @@ class AuthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScreen<AuthViewModel>(
       onModelReady: (_) {
-        locator<DbHelper>().getAllUsers().then((value) {
-          print("users are =================== ${value.length}");
-        });
+
       },
       builder: (_, vm, child) {
         return Scaffold(
@@ -64,8 +62,11 @@ class AuthScreen extends StatelessWidget {
                     StyledButton(
                         text: 'Sign Up',
                         function: () {
-                          locator<NavigationService>()
-                              .navigateTo(RouteName.MAIN);
+                          vm.signUp(vm.getAllUsrers()+1, "name", "name@mail.com", "password", 0)
+                              .then((value) {
+                            locator<NavigationService>()
+                                .navigateTo(RouteName.MAIN);
+                          });
                         }),
                     heightSpace(7.h),
                     Row(
@@ -73,9 +74,7 @@ class AuthScreen extends StatelessWidget {
                       children: [
                         bold16Text('I already have account'),
                         widthSpace(8.w),
-                        bold16Text('SignIn', color: additionColor).onTap(() {
-                          vm.signUp( "name", "name@mail.com", "password");
-                        }),
+                        bold16Text('SignIn', color: additionColor).onTap(() {}),
                       ],
                     )
                   ],
