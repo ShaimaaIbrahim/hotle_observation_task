@@ -13,6 +13,11 @@ import '../../utils/texts.dart';
 import '../../widgets/styled_button.dart';
 import '../../widgets/styled_text_field.dart';
 
+
+TextEditingController _nameController = TextEditingController();
+TextEditingController _emailController = TextEditingController();
+TextEditingController _passController = TextEditingController();
+
 class AuthScreen extends StatelessWidget {
   const AuthScreen({Key? key}) : super(key: key);
 
@@ -62,7 +67,7 @@ class AuthScreen extends StatelessWidget {
                     StyledButton(
                         text: 'Sign Up',
                         function: () {
-                          vm.signUp(vm.getAllUsrers()+1, "name", "name@mail.com", "password", 0)
+                          vm.signUp(vm.getAllUsrers()+1, _nameController.text, _emailController.text, _passController.text, 0)
                               .then((value) {
                             locator<NavigationService>()
                                 .navigateTo(RouteName.MAIN);
