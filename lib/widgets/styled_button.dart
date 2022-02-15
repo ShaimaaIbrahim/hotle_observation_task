@@ -15,8 +15,7 @@ class StyledButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48.h,
-
+      height: 45.h,
       decoration: BoxDecoration(
           borderRadius: radius==null ? BorderRadius.all(Radius.circular(4.r)):  BorderRadius.all(Radius.circular(0.r)),
         color: fillColor?? primaryColor,),

@@ -4,6 +4,8 @@ import 'package:hotel_observation_assignment/utils/colors.dart';
 import 'package:hotel_observation_assignment/utils/texts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../locator.dart';
+import '../routes/RoutesNames.dart';
+import '../services/navigation_services.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -14,13 +16,11 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  int length = 0;
 
   @override
   void initState() {
-    DbHelper().init().then((value) {
-
-    });
+    new Future.delayed(const Duration(seconds: 2),
+            () => locator<NavigationService>().navigateTo(RouteName.AUTH));
     super.initState();
   }
   @override
@@ -37,11 +37,19 @@ class _SplashScreenState extends State<SplashScreen> {
         orientation: Orientation.portrait);
 
     return Scaffold(
+      backgroundColor: secondaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Center(
-            child: bold28Text(length.toString(), color: primaryColor),
-          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                  child:  Image.asset('assets/icons/book.png', width: 150.w, height: 150.h,)
+
+              )
+            ],
+          )
         ),
       ),
     );

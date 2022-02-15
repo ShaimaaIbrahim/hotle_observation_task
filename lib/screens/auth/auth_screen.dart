@@ -23,52 +23,36 @@ class AuthScreen extends StatelessWidget {
                    child: Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
-                       Row(
-                         children: [
-                           Image.asset(
-                             'assets/images/logo.png',
-                             width: 134.w,
-                             height: 93.h,
-                             color: primaryColor,
-                           ),
-                           Spacer(),
-                           Image.asset(
-                             'assets/icons/close.png',
-                             width: 16.w,
-                             height: 16.h,
-                             color: primaryColor,
-                           )
-                         ],
+                       Center(
+                         child: Image.asset(
+                           'assets/icons/book.png',
+                           width: 134.w,
+                           height: 93.h,
+                         ),
                        ),
                        heightSpace(45.h),
-                       bold22Text('عمل حساب جديد'),
+                       bold22Text('Create new Account'),
                        heightSpace(22.h),
-                       bold12Text('الأسم الأول'),
+                       bold16Text('Name'),
                        heightSpace(5.h),
                        StyledTextField(
-                         hint: 'الأسم الأول',
+                         hint: 'Name',
                        ),
                        heightSpace(22.h),
-                       bold12Text('الأسم الاخير'),
+                       bold16Text('Email'),
                        heightSpace(5.h),
                        StyledTextField(
-                         hint: 'الأسم الاخير',
+                         hint: 'Email',
                        ),
                        heightSpace(22.h),
-                       bold12Text('الايميل'),
+                       bold16Text('Password'),
                        heightSpace(5.h),
                        StyledTextField(
-                         hint: 'الايميل',
-                       ),
-                       heightSpace(22.h),
-                       bold12Text('كلمة السر'),
-                       heightSpace(5.h),
-                       StyledTextField(
-                         hint: 'كلمة السر',
+                         hint: 'Password',
                        ),
                        heightSpace(50.h),
                        StyledButton(
-                           text: 'إشترك الان',
+                           text: 'Sign Up',
                            function: () {
                              locator<NavigationService>()
                                  .navigateTo(RouteName.MAIN);
@@ -77,9 +61,9 @@ class AuthScreen extends StatelessWidget {
                        Row(
                          mainAxisAlignment: MainAxisAlignment.center,
                          children: [
-                           bold12Text('انا أصلاً عندي حساب !'),
+                           bold16Text('I already have account'),
                            widthSpace(8.w),
-                           bold12Text('تسجيل دخول', color: additionColor).onTap((){
+                           bold16Text('SignIn', color: additionColor).onTap((){
                              locator<NavigationService>()
                                  .navigateTo(RouteName.AUTH);
                            }),
