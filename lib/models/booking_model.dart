@@ -2,6 +2,7 @@ class Booking{
 
   int? book_id;
   String? branch_name;
+  double? cost;
 
-  Booking.name(this.book_id, this.branch_name);
+  Booking({this.book_id, this.branch_name, this.cost});
 }

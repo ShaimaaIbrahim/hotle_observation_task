@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_observation_assignment/db/database_helper.dart';
 import 'package:hotel_observation_assignment/screens/BaseScreen.dart';
 import 'package:hotel_observation_assignment/screens/main/viewmodel/hotels_viewmodel.dart';
 import 'package:hotel_observation_assignment/screens/main/widget/room_list_item.dart';
@@ -7,13 +8,15 @@ import 'package:hotel_observation_assignment/utils/common_functions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hotel_observation_assignment/widgets/search_text_field.dart';
 
+import '../../Locator.dart';
+
 class HotelsPage extends StatelessWidget {
   const HotelsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BaseScreen<HotelsViewModel>(
-      onModelReady: (_){
+      onModelReady: (_) async{
         _.getAllRooms();
       },
       builder: (_, vm, child){

@@ -8,9 +8,9 @@ class HotelsViewModel extends BaseViewModel{
 
   List<RoomModel> rooms = [];
 
-
+  DbHelper helper = DbHelper();
   void getAllRooms(){
-    DbHelper().init().then((value) {
+    helper.getAllTheHotelRooms().then((value) {
           this.rooms = value;
           notifyListeners();
     });
