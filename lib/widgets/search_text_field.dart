@@ -16,7 +16,7 @@ class SearchTextField extends StatelessWidget {
         onChanged: (val) {},
         onTap: () {},
         decoration: InputDecoration(
-            hintText: 'ابحث',
+            hintText: 'search',
             hintStyle: TextStyle(color: greyColor, fontSize: 16),
             prefixIcon: Icon(Icons.search),
             // suffixIcon: IconButton(

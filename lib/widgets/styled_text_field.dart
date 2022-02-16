@@ -12,6 +12,7 @@ class StyledTextField extends StatelessWidget {
   final validator;
   final textAlign;
   final Color? fillColor;
+  final bool obsecure;
 
   // final double? borderRadius;
   final double? borderPadding;
@@ -25,6 +26,7 @@ class StyledTextField extends StatelessWidget {
   final double? width;
 
   const StyledTextField({
+    required this.obsecure,
     this.width,
     this.hintStyle,
     this.controller,
@@ -55,7 +57,8 @@ class StyledTextField extends StatelessWidget {
         onChanged: (value) {
           if (value.length > 100) {}
         },
-        maxLines: maxLines,
+        obscureText: obsecure,
+        maxLines: 1,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(
               horizontal: borderPadding ?? 5.w, vertical: 5.h),

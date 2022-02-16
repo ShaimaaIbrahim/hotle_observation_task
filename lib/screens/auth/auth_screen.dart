@@ -49,29 +49,43 @@ class AuthScreen extends StatelessWidget {
                     bold16Text('Name'),
                     heightSpace(5.h),
                     StyledTextField(
+                      obsecure: false,
                       hint: 'Name',
+                      controller: _nameController,
                     ),
                     heightSpace(22.h),
                     bold16Text('Email'),
                     heightSpace(5.h),
                     StyledTextField(
+                      obsecure: false,
                       hint: 'Email',
+                      controller: _emailController,
                     ),
                     heightSpace(22.h),
                     bold16Text('Password'),
                     heightSpace(5.h),
                     StyledTextField(
+                      obsecure: true,
                       hint: 'Password',
+                      controller: _passController,
                     ),
                     heightSpace(50.h),
                     StyledButton(
                         text: 'Sign Up',
                         function: () {
-                          vm.signUp(vm.getAllUsrers()+1, _nameController.text, _emailController.text, _passController.text, 0)
-                              .then((value) {
-                            locator<NavigationService>()
-                                .navigateTo(RouteName.MAIN);
-                          });
+                         vm.checkUserExistence(_nameController.text.trim()).then((value) {
+                           if(value==true){
+                              showSnackBar('Email Already exist', context);
+                           }else{
+                             vm.signUp(vm.getAllUsrers()+1, _nameController.text,
+                                 _emailController.text,
+                                 _passController.text, 0)
+                                 .then((value) {
+                               locator<NavigationService>()
+                                   .navigateTo(RouteName.MAIN);
+                             });
+                           }
+                         });
                         }),
                     heightSpace(7.h),
                     Row(
